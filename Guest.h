@@ -1,46 +1,59 @@
-#ifndef GUEST_H_INCLUDED
-#define GUEST_H_INCLUDED
+#include <bits/stdc++.h>
+using namespace std;
+#ifndef GUEST_H
+#define GUEST_H
 
-class Guest{
-public:
-    string name;
-    int id;
-    long ph_no;
-    string address;
-    int room_no;
-    string checkIn;
-    string checkOut;
-    string roomType;
-    int roomRate;
 
-    void getCheckInDate(string checkIn){
-    this.checkIn=checkIn;
-    }
-    string setCheckInDate(){
-    return checkIn;
-    }
-    void getCheckOutDate(string checkOut){
-    this.checkOut=checkOut;
-    }
-    string setCheckOutDate(){
-    return checkOut;
-    }
-    void orderFood(){
-    //displaying the food items available along with their price
-    //storing the total sum and adding it to the total bill
-    }
-    void payBills(){
-    //getting all the payable amounts
-    }
-    string printBill(){
-    cout<<"Total bill: \n";
-    cout<<"Room price: "+roomType+" "+roomRate+"\n";
-    cout<<"Others:";
-    }
-    string submitFeedback(){
-   // A form will be provided to be filled
-    }
+class Guest
+{
+    public:
+        Guest();
 
+
+        string name;
+        int id;
+        long ph_no;
+        string city;
+        int room_no;
+        string checkIn;
+        string checkOut;
+        string roomType;
+        int roomRate;
+
+
+        void inputData();
+        void setCheckInDate(string ci);
+        string getCheckInDate();
+
+        void setCheckOutDate(string co);
+        string getCheckOutDate();
+
+        void setName(string nm);
+        string getName();
+
+        void setPhno(long ph);
+        long getPhno();
+
+        void setCity(string ct);
+        string getCity();
+
+
+        void orderFood();
+
+        void payBills();
+
+        string printBill();
+
+        string submitFeedback();
+
+        int summary();
+        void putdata();
+
+        int writeIntoFile();
+
+    protected:
+
+    private:
 };
 
-#endif // GUEST_H_INCLUDED
+#endif // GUEST_H
