@@ -143,7 +143,7 @@ Guest::Guest()
         if(ph_no==r)
         {
 
-            cout<<"\n Cusromer Details";
+            cout<<"\n Summary:";
             cout<<"\n ****************";
             cout<<"\n\n Name: "<<name;
             cout<<"\n City: "<<city;
@@ -160,7 +160,7 @@ Guest::Guest()
     }
 
     if(flag==0)
-        cout<<"\n Sorry Room no. not found or vacant!!";
+        cout<<"\n Sorry, invalid ph_no";
 
     cout<<"\n\n Press any key to continue!!";
 
@@ -171,7 +171,7 @@ Guest::Guest()
     void Guest::putdata()
               {
 
-                  cout<<"\n\t"<<name<<"\t"<<ph_no<<"\t"<<city;
+                 
 
               }
     int Guest::writeIntoFile(){
@@ -187,9 +187,10 @@ Guest::Guest()
       return 0;
     }
     cout<<"\nFile created successfully."<<endl;
+       
     gst.inputData();
     file.write((char*)&gst,sizeof(gst));
-    file.close();   //close the file
+    file.close();   
     cout<<"\nFile saved and closed succesfully."<<endl;
 
     }
