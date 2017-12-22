@@ -1,12 +1,20 @@
-#ifndef ROOM_H_INCLUDED
-#define ROOM_H_INCLUDED
-
-class Room{
-public:
-    int RoomNo;
-    string RoomType;
-
-    };
+#include <bits/stdc++.h>
+using namespace std;
+#ifndef ROOM_H
+#define ROOM_H
 
 
-#endif // ROOM_H_INCLUDED
+class Room
+{
+    public:
+        Room();
+        int roomNo;
+        string roomType;
+        bool checkAvaility();
+
+    protected:
+
+    private:
+};
+
+#endif // ROOM_H
