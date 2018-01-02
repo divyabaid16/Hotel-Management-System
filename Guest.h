@@ -9,33 +9,34 @@ class Guest
     public:
         Guest();
 
-
-        string name;
+        static int id1;
+        char name[30];
         int id;
         long ph_no;
-        string city;
+        char city[30];
         int room_no;
-        string checkIn;
-        string checkOut;
-        string roomType;
+        int checkIn[3];
+       // int *checkIn[3];
+        int checkOut[3];
+        int roomType;
         int roomRate;
 
 
         void inputData();
-        void setCheckInDate(string ci);
-        string getCheckInDate();
+        void setCheckInDate(int ,int ,int);
+        int* getCheckInDate();
 
-        void setCheckOutDate(string co);
-        string getCheckOutDate();
+        void setCheckOutDate(int,int,int);
+        int* getCheckOutDate();
 
-        void setName(string nm);
-        string getName();
+        void setName(char* nm);
+        char* getName();
 
         void setPhno(long ph);
         long getPhno();
 
-        void setCity(string ct);
-        string getCity();
+        void setCity(char* ct);
+        char* getCity();
 
 
         void orderFood();
@@ -46,14 +47,19 @@ class Guest
 
         string submitFeedback();
 
-        int summary();
+        void summary();
         void putdata();
 
-        int writeIntoFile();
+        void writeIntoFile();
+        void getCompleteRecord();
+        void deleteRecord();
+        void setCD(int *);
 
     protected:
 
     private:
-};
+};//int Guest::id1=1;
+
 
 #endif // GUEST_H
+
