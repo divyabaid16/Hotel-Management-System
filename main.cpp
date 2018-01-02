@@ -10,7 +10,7 @@ int main()
     system("cls");
     do{
     cout << "\tChoose:" << endl;
-    cout << "1. Check availability \n2. Order food\n3. Book Room\n4. Call housekeeping\n5. Generate bills\n6. Banquet hall booking\n0. Exit"  <<endl;
+    cout << "1. Check availability \n2. Order food\n3. Book Room\n4. Call housekeeping\n5. Search a record\n6. Find complete record\n7. Delete a record\n0. Exit"  <<endl;
     cin >>choice;
     switch (choice){
     case 1: {cout<<"ava\n\n";
@@ -22,16 +22,27 @@ int main()
             break;
     case 3: {cout<<"room\n\n";
            Guest g;
-           g.inputData();}
+           g.writeIntoFile();}
             break;
-    case 4: cout<<"house\n\n";
+    case 4: {cout<<"house\n\n";
+            Guest g;
+            g.inputData();
+            g.payBills();}
             break;
     case 5: {cout<<"bills\n\n";
             Guest g;
             g.summary();
             }
             break;
-    case 6: cout<<"hall\n\n";
+    case 6: {cout<<"hall\n\n";
+            Guest g;
+            g.getCompleteRecord();
+            }
+            break;
+    case 7:{cout<<"Delete";
+            Guest g;
+            g.deleteRecord();
+            }
             break;
     case 0: exit(0);
     default: cout<<"Choose a valid option\n\n";
