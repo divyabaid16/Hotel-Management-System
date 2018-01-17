@@ -18,7 +18,7 @@ Guest::Guest()
         //int id=0;
         id=id1;
         id1++;
-        long ph;
+        long int ph;
         char ct[30];
         //int room_no;
         int ci[3];
@@ -29,15 +29,17 @@ Guest::Guest()
 
 
 
-
+        Room r;
    // id=0;
-     room_no=0;
+     room_no=r.getRoomNo();
      //roomRate=0;
 
-        Room r;
+   /*     Room r;
         f=r.chooseRoom();
         roomType=f;
-        roomRate=r.getRoomRate();
+
+
+        roomRate=r.getRoomRate();*/
        //cout <<"Enter Room type:\n";
        //cin >>roomType;
     cout <<"\nChecking Availabity.......\n";
@@ -81,11 +83,12 @@ Guest::Guest()
     setCheckOutDate(d2.d,d2.m,d2.y);
 
 
-    bool a=r.checkAvaility();
+/*    bool a=r.checkAvaility();
 
     if(a==true){
         cout <<"Room is available\n";
     }
+    */
 
      cout <<"Enter Name:\n";
     cin >> nm;
@@ -138,10 +141,10 @@ Guest::Guest()
     return name;
     }
 
-    void Guest::setPhno(long ph){
+    void Guest::setPhno(long int ph){
     ph_no=ph;
     }
-    long Guest::getPhno(){
+    long int Guest::getPhno(){
     return ph_no;
     }
 

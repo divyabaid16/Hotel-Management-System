@@ -12,12 +12,13 @@ class Guest
         static int id1;
         char name[30];
         int id;
-        long ph_no;
+        long int ph_no;
         char city[30];
         int room_no;
         int checkIn[3];
        // int *checkIn[3];
         int checkOut[3];
+        //int roomType;
         int roomType;
         int roomRate;
 
@@ -33,7 +34,7 @@ class Guest
         char* getName();
 
         void setPhno(long ph);
-        long getPhno();
+        long int getPhno();
 
         void setCity(char* ct);
         char* getCity();
@@ -62,4 +63,3 @@ class Guest
 
 
 #endif // GUEST_H
-

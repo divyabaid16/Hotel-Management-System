@@ -9,9 +9,14 @@ class Room
     public:
         Room();
         int roomNo;
-        string roomType;
+        int roomType;
         bool checkAvaility();
-
+        int chooseRoom();
+        int getRoomRate();
+        void displayItems(int type);
+        int bookRoom();
+        void check_room_no();
+        int getRoomNo();
     protected:
 
     private:
