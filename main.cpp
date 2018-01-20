@@ -2,44 +2,50 @@
 #include "Room.h"
 #include "Room.cpp"
 #include "Guest.h"
+#include "Date.h"
 using namespace std;
 
 int main()
 {
     int choice;
+    int no,type,rate;
+    int c;
     system("cls");
     do{
-    cout << "\tChoose:" << endl;
-    cout << "1. Check availability \n2. Order food\n3. Book Room\n4. Call housekeeping\n5. Search a record\n6. Find complete record\n7. Delete a record\n0. Exit"  <<endl;
+    cout << "\n\n\tChoose:" << endl;
+    cout << "1. Check availability \n2. Book Room\n3. Search a record\n4. Find complete record\n5. Delete a record\n0. Exit"  <<endl;
     cin >>choice;
     switch (choice){
-    case 1: {cout<<"ava\n\n";
+    case 1: {
+        int b;
              Room h;
-             h.checkAvaility();
+             b=h.chooseRoom();
+             c=h.roomNo;
+             no=h.getNo();
+             type=h.getType();
+             rate=h.getRate();
                 }
             break;
-    case 2: cout<<"food\n\n";
-            break;
-    case 3: {cout<<"room\n\n";
-           Guest g;
-           g.writeIntoFile();}
-            break;
-    case 4: {cout<<"house\n\n";
-            Guest g;
-            g.inputData();
-            g.payBills();}
-            break;
-    case 5: {cout<<"bills\n\n";
-            Guest g;
-            g.summary();
+
+
+    case 2: {cout<<"room\n\n";
+            int c;
+            Room r;
+            c=r.chooseRoom();
             }
             break;
-    case 6: {cout<<"hall\n\n";
+
+    case 3: {
             Guest g;
-            g.getCompleteRecord();
+            g.searchRecord();
             }
             break;
-    case 7:{cout<<"Delete";
+    case 4: {
+            Guest g;
+            g.putdata();
+            }
+            break;
+    case 5:{
             Guest g;
             g.deleteRecord();
             }
