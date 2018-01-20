@@ -7,7 +7,7 @@ using namespace std;
 Room::Room()
 {
 
-}
+}//checking the availability of the room
 bool Room::checkAvaility(){
    int room_no;
    int type;
@@ -22,27 +22,11 @@ bool Room::checkAvaility(){
     case 4:displayItems(4);
             break;
     }
-  // bookRoom();
-/*ofstream single;
-single.open("single.txt");
-single <<"101\n102\n103\n104\n201\n202\n203\n301\n302\n303\n";
-single.close();
-*/
-
-
-    int i=1;
-    string line1;
-
-
-
-
-
-
 return true;
 
 
 }
-
+//Displaying the rooms
 void Room::displayItems(int ty){
     int room_no;
    int type;
@@ -55,11 +39,9 @@ void Room::displayItems(int ty){
     cout<<"\nThe available rooms are:\n";
    ifstream single1("total_room.txt");
 string line;
-while(single1 >> room_no >> type){
-       // if(ty==type){
 
-       // }
-   // cout <<room_no<<"\n";
+//Single Room
+while(single1 >> room_no >> type){
    if(ty==1){
     if(ty==type){
         cout <<room_no<<"\n";
@@ -67,7 +49,7 @@ while(single1 >> room_no >> type){
         a++;
     }
     }
-
+//Double Room
     if(ty==2){
     if(ty==type){
         double_room++;
@@ -75,7 +57,7 @@ while(single1 >> room_no >> type){
         cout <<room_no<<"\n";
     }
     }
-
+//Family Room
     if(ty==3){
     if(ty==type){
         family_room++;
@@ -83,7 +65,7 @@ while(single1 >> room_no >> type){
         a++;
     }
     }
-
+//King Size Room
     if(ty==4){
     if(ty==type){
         king_size_room++;
@@ -97,30 +79,30 @@ while(single1 >> room_no >> type){
 single1.close();
 
 char q;
+
 if(a!=0){
         cout<<"Would you like to book the room (y/n)";
         cin >> q;
         if(q=='y'||q=='Y')
-    roomNo=bookRoom();
+    bookRoom();
 }
+//Single room not available
 if(ty==1){
     if(single_room==0)
-        cout<<"\nNo Single occupancy roooms are available\n";
-
-
-
+        cout<<"\nNo Single occupancy rooms are available\n";
 }
-
+//Double room not available
 if(ty==2){
     if(double_room==0)
         cout<<"\nNo Double occupancy roooms are available\n";
 }
-
+//Family room not available
 if(ty==3){
     if(family_room==0)
         cout<<"\nNo Family roooms are available\n";
 }
 
+//King Size room not available
 if(ty==4){
     if(king_size_room==0)
         cout<<"\nNo King size roooms are available\n";
@@ -131,13 +113,13 @@ if(ty==4){
             if(x=='y')
                 chooseRoom();
 
-
+}
 single1.close();
 
+//}
 }
-}
-
-int Room::bookRoom(){
+//Book Room
+void Room::bookRoom(){
     int no[30]={101,102,103,104,105,106,107,108,109,110,
                 201,202,203,204,205,206,207,208,209,210,
                 301,302,303,304,305,306,307,308,309,310,
@@ -147,11 +129,11 @@ int Room::bookRoom(){
     int family_room[5]={109,110,207,307,308};
     int king_size_room[5]={208,209,210,309,310};
 
-    int a;
-    cout<<"\nChoose any of the Room No:\n";
-    cin >>a;
-    roomNo=a;
 
+    int a;
+    a=getRoomNo();
+
+    //Single Room
     if(roomType==1){
         int j=0;
     for(int i=0;i<7;i++){
@@ -160,11 +142,31 @@ int Room::bookRoom(){
     }
     if(j==0){
         cout<<"Enter valid Room No.";
-        roomNo=bookRoom();
-    }
+        bookRoom();
+    }    int room_no;
+   //int type;
+   /* string line1;
+    ifstream fp1;
+fp1.open("total_room.txt");
+ofstream fp2;
+fp2.open("temp.txt");
+int r=1;
+while(fp1 >> room_no){
+        r++;
+    if(room_no!=a){
+        fp2 <<room_no<<"\n";
+
     }
 
+}
+fp1.close();
+fp2.close();
+remove("single_room.txt");
+rename("temp_single.txt","single_room.txt");*/
 
+    }
+
+    //Double Room
     if(roomType==2){
         int j=0;
     for(int i=0;i<13;i++){
@@ -173,10 +175,11 @@ int Room::bookRoom(){
     }
     if(j==0){
         cout<<"Enter valid Room No.";
-        roomNo=bookRoom();
+        bookRoom();
     }
     }
 
+    //Family Room
     if(roomType==3){
         int j=0;
     for(int i=0;i<5;i++){
@@ -185,10 +188,11 @@ int Room::bookRoom(){
     }
     if(j==0){
         cout<<"Enter valid Room No.";
-        roomNo=bookRoom();
+        bookRoom();
     }
     }
 
+    //King Size room
     if(roomType==4){
         int j=0;
     for(int i=0;i<5;i++){
@@ -197,10 +201,11 @@ int Room::bookRoom(){
     }
     if(j==0){
         cout<<"Enter valid Room No.";
-        roomNo=bookRoom();
+        bookRoom();
     }
     }
 
+    //Delete the selected room
     int room_no;
    int type;
     string line1;
@@ -212,7 +217,6 @@ int r=1;
 while(fp1 >> room_no >> type){
         r++;
     if(room_no!=a){
-            cout<<"d"<<"\n";
         fp2 <<room_no<<" "<<type<<"\n";
 
     }
@@ -222,18 +226,43 @@ fp1.close();
 fp2.close();
 remove("total_room.txt");
 rename("temp.txt","total_room.txt");
+rate=getRoomRate();
+Guest g(roomNo,roomType,rate);
+g.inputData();
 
-Guest g;
-//g.inputData();
-g.writeIntoFile();
 
-return roomNo;
+//return roomNo;
 }
 
+//Input room no. from user from the selected room
 int Room::getRoomNo(){
+    int a;
+    cout<<"\nChoose any of the Room No:\n";
+    cin >>a;
+    roomNo=a;
+  //  setRoomNo(a);
     return roomNo;
 }
 
+//void Room::setRoomNo(int a){
+//roomNo=a;}
+
+int Room::getNo(){
+    no=roomNo;
+    return no;
+}
+
+//Get Room Type
+int Room::getType(){
+    return roomType;
+    }
+
+    //Get Room Rate
+int Room::getRate(){
+    return rate;
+}
+
+//Choose Room
 int Room::chooseRoom(){
     int choice;
     char *type;
@@ -247,19 +276,24 @@ int Room::chooseRoom(){
     roomType=choice;
     checkAvaility();
     switch(choice){
-    case 1:type="Single room";
+    case 1:{type="Single room";
+            rate=3000;}
             break;
-    case 2:type="Double room";
+    case 2:{type="Double room";
+            rate=4000;}
             break;
-    case 3:type="Family room";
+    case 3:{type="Family room";
+            rate=5000;}
             break;
-    case 4:type="King sized room";
+    case 4:{type="King sized room";
+            rate=4500;}
             break;
 
             }
     return choice;
 }
 
+//Get Price
 int Room::getRoomRate(){
     int price;
     switch(roomType){
