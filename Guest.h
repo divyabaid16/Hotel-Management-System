@@ -8,11 +8,16 @@ class Guest
 {
     public:
         Guest();
-
+        Guest(int a,int b,int c);
+        int no;
         static int id1;
         char name[30];
         int id;
-        long int ph_no;
+        int difference;
+
+        //string naaaa;
+        char ph_no[10];
+        char phhhh[10];
         char city[30];
         int room_no;
         int checkIn[3];
@@ -21,9 +26,12 @@ class Guest
         //int roomType;
         int roomType;
         int roomRate;
+        int price;
 
-
+        char type1[25];
         void inputData();
+        bool check(char *);
+
         void setCheckInDate(int ,int ,int);
         int* getCheckInDate();
 
@@ -33,11 +41,23 @@ class Guest
         void setName(char* nm);
         char* getName();
 
-        void setPhno(long ph);
-        long int getPhno();
+       // void setN(string a);
+        //string getN();
+
+        void setPhno(char* ph);
+        char* getPhno();
+
+        void setNewPhone(char *ph);
 
         void setCity(char* ct);
         char* getCity();
+
+        void setPrice(int pr);
+
+        void setRoomNo(int a);
+        int getRoomNo();
+
+        void getType(int n);
 
 
         void orderFood();
@@ -51,7 +71,9 @@ class Guest
         void summary();
         void putdata();
 
+        //void writeIntoFile(int a);
         void writeIntoFile();
+        void searchRecord();
         void getCompleteRecord();
         void deleteRecord();
         void setCD(int *);
