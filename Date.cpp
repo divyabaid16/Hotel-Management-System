@@ -4,9 +4,47 @@ using namespace std;
 
 Date::Date()
 {
-    //ctor
+    const int monthDays[12] = {31, 28, 31, 30, 31, 30,
+                          31, 31, 30, 31, 30, 31};
+    cout <<"Enter Day(DD):";
+    cin >>d;
+    if(d<0||d>31)
+      {
+          cout<<"Enter valid date(DD)";
+        cin >>d;
+      }
+    cout <<"Enter Month(MM):";
+    cin >>m;
+    if(m<0||m>12){
+        cout<<"Enter valid month(MM)";
+        cin>>m;}
+        while(d>monthDays[m-1]){
+            cout<<"Enter valid date(DD)";
+            cin>>d;
+        }
+
+
+    cout <<"Enter Year(YYYY):";
+    cin >>y;
+    if(y/2000<1){
+        cout<<"Enter valid Year(YYYY)";
+        cin >> y;
+    }
+    ci[0]=d;
+    ci[1]=m;
+    ci[2]=y;
+   // return ci;
+    //setDate();
+
 }
 
+/*char * Date::setDate(){
+    return ci;
+}
+*/
+char* Date::setDate(){
+    return ci;
+}
 int Date::countLeapYears(Date d)
 {
     const int monthDays[12] = {31, 28, 31, 30, 31, 30,
@@ -51,34 +89,3 @@ int Date::getDifference(Date dt1, Date dt2)
     return (n2 - n1);
 }
 
-int* Date::getDate(){
-    int ci[3];
-    const int monthDays[12] = {31, 28, 31, 30, 31, 30,
-                          31, 31, 30, 31, 30, 31};
-    cout <<"Enter Day:";
-    cin >>d;
-    if(d<0)
-        cout<<"Enter valid date";
-        cin >>d;
-    cout <<"Enter Month:";
-    cin >>m;
-    if(m<0||m>12){
-        cout<<"Enter valid month";
-        cin>>m;
-        if(d>monthDays[m]){
-            cout<<"Enter valid date";
-            cin>>d;
-        }
-    }
-
-    cout <<"Enter Year:";
-    cin >>y;
-    if(y/2000<1){
-        cout<<"Enter valid Year";
-        cin >> y;
-    }
-    ci[0]=d;
-    ci[1]=m;
-    ci[2]=y;
-    return ci;
-    }
